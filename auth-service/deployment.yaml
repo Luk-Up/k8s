@@ -19,4 +19,23 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 5000
+          - containerPort: 5000
+        env:
+          - name: PORT 
+            value: "5000"
+          
+          - name: JWT_EXPIRES_IN
+            value: "1h"
+
+          - name: MONGO_URI
+            valueFrom:
+              secretKeyRef:
+                name: auth-secvice-secrets
+                key: MONGO_URI
+
+          - name: JWT_SECRET
+            valueFrom: 
+              secretKeyRef:
+                name: auth-secvice-secrets
+                key: JWT_SECRET
+
