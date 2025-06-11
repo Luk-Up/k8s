@@ -30,12 +30,12 @@ spec:
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:
-                name: auth-secvice-secrets
+                name: auth-service-secrets
                 key: MONGO_URI
 
           - name: JWT_SECRET
             valueFrom: 
               secretKeyRef:
-                name: auth-secvice-secrets
+                name: auth-service-secrets
                 key: JWT_SECRET
 
